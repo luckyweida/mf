@@ -3,12 +3,12 @@
 namespace MillenniumFalcon\Core\Controller;
 
 use Doctrine\DBAL\Connection;
+use MillenniumFalcon\Cart\Service\CartServiceWrapper;
 use MillenniumFalcon\Core\Controller\Traits\Web\Cart\WebCartAjaxTrait;
 use MillenniumFalcon\Core\Controller\Traits\Web\Cart\WebCartPageTrait;
 use MillenniumFalcon\Core\Controller\Traits\Web\Core\WebCoreAssetTrait;
 use MillenniumFalcon\Core\Controller\Traits\Web\Core\WebCoreTrait;
 use MillenniumFalcon\Core\RouterController;
-use MillenniumFalcon\Core\Service\CartService;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -33,9 +33,7 @@ class WebController extends RouterController
      */
     protected $kernel;
 
-    /**
-     * @var CartService
-     */
+
     protected $cartService;
 
     /**
@@ -45,7 +43,7 @@ class WebController extends RouterController
      * @param CartService $cartService
      * @param Environment $environment
      */
-    public function __construct(Connection $connection, KernelInterface $kernel, CartService $cartService)
+    public function __construct(Connection $connection, KernelInterface $kernel, CartServiceWrapper $cartService)
     {
         $this->connection = $connection;
         $this->kernel = $kernel;

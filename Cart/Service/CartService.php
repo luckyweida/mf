@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Twig\Environment;
 
-class CartService
+class CartService extends CartServiceWrapper
 {
     const CUSTOMER_WEBSITE = 1;
     const CUSTOMER_GOOGLE = 2;

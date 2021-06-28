@@ -3,6 +3,7 @@
 namespace MillenniumFalcon\Core\Service;
 
 use Doctrine\DBAL\Connection;
+use MillenniumFalcon\Cart\Service\CartServiceWrapper;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class CartService
+class CartService extends CartServiceWrapper
 {
     const STATUS_UNPAID = 0;
     const STATUS_SUBMITTED = 1;
